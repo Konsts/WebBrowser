@@ -1,0 +1,16 @@
+﻿<div ng-repeat="d in dir.DirectoryModels">
+    <ng-switch on="d.Type">
+        <a href="#" ng-switch-when="0" ng-click="getDir(d.Path)">
+            <span class="glyphicon glyphicon-folder-close"></span>
+            {{d.Path.substring(d.Path.lastIndexOf("\\")+1)}}
+        </a>
+        <a ng-switch-when="1">
+            <span class="glyphicon glyphicon-file"></span>
+            {{d.Path.substring(d.Path.lastIndexOf("\\")+1)}}
+        </a>
+        <a href="#" ng-switch-when="2" ng-click="getDir(d.Path)">
+            <span class="glyphicon glyphicon-hdd"></span>
+            {{d.Path}}
+        </a>
+    </ng-switch>
+</div>

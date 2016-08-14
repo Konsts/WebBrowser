@@ -1,0 +1,59 @@
+﻿
+@{
+    ViewBag.Title = "WebExplorer";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<div ng-controller="browserController">
+    <div  class="panel panel-default">
+        <div class="panel-heading">
+            <h3>Statistic</h3>
+        </div>
+
+        <div class="panel-body">
+            <table ng-hide="dir.Parent=='none'" class="table">
+                <thead>
+                <tr>
+                    <td class="text-center">less 10 mb</td>
+                    <td class="text-center">10mb-50mb</td>
+                    <td class="text-center">more than 100 mb</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-hide="loading">
+                    <td class="text-center">{{stat.Less10Mb}}</td>
+                    <td class="text-center">{{stat.More10MbAndLess50Mb}}</td>
+                    <td class="text-center">{{stat.More100Mb}}</td>
+                </tr>
+                <tr ng-show="loading">
+                    <td colspan="3">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 100%"></div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <h2 ng-show="dir.Parent=='none'">Select disk, please</h2>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <button class="btn btn-default" ng-click="getDir('')">
+                <span class="glyphicon glyphicon-home"></span>
+            </button>
+            <button class="btn btn-default" ng-hide="dir.Parent=='none'" ng-click="getDir(dir.Parent)">
+                <span class="glyphicon glyphicon-level-up"></span>
+                Root
+            </button>
+        </div>
+        <div class="panel-body">
+            {{dir.CurrentPath}}
+            <br/>
+            <directories-list></directories-list>
+        </div>
+    </div>
+
+
+</div>
+

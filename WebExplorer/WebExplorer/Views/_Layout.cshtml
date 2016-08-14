@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+
+<html ng-app="app">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="container">
+        <div class="navbar navbar-default">
+            <div class="navbar-brand">Web Explorer <span class="glyphicon glyphicon-folder-open"></span></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">@RenderBody()</div>
+        <div class="col-md-3"></div>
+    </div>
+    <!--Script section-->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+    <script src="~/Scripts/angular-resource.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="~/app/app.js"></script>
+    <script src="~/app/factory/directory.js"></script>
+    <script src="~/app/directives/directoriesList.js"></script>
+    <script src="~/app/controllers/browserController.js"></script>
+</body>
+</html>
